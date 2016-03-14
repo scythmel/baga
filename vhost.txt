@@ -1,0 +1,11 @@
+
+<VirtualHost *:80>
+    ServerName baga.local
+    DocumentRoot "C:/xampp/htdocs/baga/public"
+    <Directory "C:/xampp/htdocs/baga/public">
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
