@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Login
+Route::get('login', ['middleware' => 'guest', 'uses' => 'LoginController@showlogin']);
+Route::post('login', 'LoginController@checklogin');
+Route::get('logout', 'LoginController@logout');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    
+    Route::get('leadprofiles', ['as' => 'Report - Lead-Level Live Sales' , 'middleware' => 'requirerole:admin|reporter', 'uses' => 'EDUReportController@leadprofiles']);
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
