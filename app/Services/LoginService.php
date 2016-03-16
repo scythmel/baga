@@ -15,13 +15,14 @@ class LoginService implements ILoginService
 {
     public function validator($input) {
         $rules = array(
-                'username'  => 'required|username',
+                'username'  => 'required',
                 'password'  => 'required'
             );
         $messages = array(
             'username.required' => 'Username is required.',
             'password.required' => 'Password is required.'
         );
+        
         $validator = Validator::make($input, $rules, $messages);
 
         return $validator;

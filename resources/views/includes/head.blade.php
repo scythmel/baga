@@ -4,4 +4,4 @@
 <link rel="icon" type="image/x-ong" href="{{ asset('img/favicon.png') }}" />
 {!! HTML::style('css/styles.css') !!}
 {!! HTML::script('test.js') !!}
-<title></title>
+<title>practice</title>
