@@ -1,27 +1,24 @@
 @extends('layouts.blank')
 
 @section('content')
-<div class="section1 tacenter">
-    <form method="post" class="login" id="login" action="/login">
+<div class="col-md-4 col-md-offset-4">
+    <form method="post" id="login" action="/login">
         {!! csrf_field() !!}
-        <div class="entry">
-            <input type="text" id="username" name="username" class="textbox" placeholder="Username" maxlength="100"
-                value="{{ Input::old('username') }}">
-            @if ($errors->has('username'))<label for="username" class="error">{{ $errors->get('username') }}</label>@endif
+        <div class="form-group @if($errors->has('username')) has-error @endif">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ Input::old('username') }}">
+          @if ($errors->has('username'))<span id="helpBlock2" class="help-block">{{ $errors->get('username') }}</span>@endif
         </div>
-        <div class="entry">
-            <input type="password" id="password" name="password" class="textbox" placeholder="Password" maxlength="50"
-                value="">
-            @if ($errors->has('password'))<label for="pwd" class="error">{{ $errors->get('password') }}</label>@endif
-            @if (Session::has('login_error'))
-                <label for="pwd" class="error">{{ Session::get('login_error') }}</label>
-                @if (Session::has('login_error'))
-                        {{ Session::forget('login_error') }}
-                @endif
-            @endif
+        <div class="form-group @if($errors->has('password')) has-error @endif">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+          @if ($errors->has('password'))<span id="helpBlock2" class="help-block">{{ $errors->get('password') }}</span>@endif
         </div>
-        <div class="entry tacenter">
-            <input type="submit" id="submitbtn" name="gosubmit" class="button1" value="Login">
+        @if (Session::has('login_error'))
+        <div class="form-group">
+          <p class="help-block">{{ Session::forget('login_error') }}</p>
         </div>
+        @endif
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
