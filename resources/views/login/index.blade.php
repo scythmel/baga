@@ -1,7 +1,7 @@
 @extends('layouts.blank')
 
 @section('content')
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-2 col-md-offset-5">
     <form method="post" id="login" action="/login">
         {!! csrf_field() !!}
         <div class="form-group @if($errors->has('username')) has-error @endif">
@@ -22,3 +22,4 @@
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
+@stop
