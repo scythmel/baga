@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-2 col-md-offset-5">
     <form method="post" id="login" action="/login">
-        {!! csrf_field() !!}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group @if($errors->has('username')) has-error @endif">
           <label for="username">Username</label>
           <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ Input::old('username') }}">

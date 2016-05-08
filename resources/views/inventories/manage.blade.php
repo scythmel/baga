@@ -12,7 +12,7 @@
         <div class="col-md-6 color-swatches"> <p class="bg-danger"> {{ Session::get('errormessage') }}{{ Session::forget('errormessage') }} </p></div>
     </div>
     @endif
-    <div class="pull-left"> {{ Form::select('outlet', $outlets) }} </div>
+    <div class="pull-left"> <?php echo Form::select('outlet', $outlets) ?> </div>
     <div class="pull-right"><a class="btn btn-success" href="{{ url('inventories/add') }}">Add Inventory</a></div>
     <div class="clearfix"></div>
     <table class="table table-hover">
@@ -31,6 +31,6 @@
         @endforeach
         </tbody>
     </table>
-    <div>{{ $inventories->links() }}</div>
+    <div><?php echo $inventories->render(); ?></div>
 </div>
 @stop

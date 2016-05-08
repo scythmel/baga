@@ -3,7 +3,7 @@
 @section('content')
 <div>
     <form method="post" class="form-horizontal">
-        {!! csrf_field() !!}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         @if (Session::has('message'))
         <div class="form-group">
             <div class="col-md-6 color-swatches"> <p class="bg-success"> {{ Session::get('message') }}{{ Session::forget('message') }} </p></div>

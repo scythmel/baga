@@ -33,6 +33,6 @@
         @endforeach
         </tbody>
     </table>
-    <div>{{ $items->links() }}</div>
+    <div><?php echo $items->render(); ?></div>
 </div>
 @stop
